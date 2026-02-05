@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Shruti!</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -24,8 +24,8 @@ h1,h2{font-family:'Pacifico',cursive;}
 
 .confetti{
 position:fixed;
-width:12px;
-height:12px;
+width:14px;
+height:14px;
 top:-20px;
 animation:fall linear forwards;
 }
@@ -34,90 +34,92 @@ animation:fall linear forwards;
 to{transform:translateY(110vh) rotate(720deg);opacity:0}
 }
 
+/* STAGE 1 */
 #stage1{
-background:rgba(255,255,255,0.25);
-backdrop-filter:blur(10px);
-padding:60px;
-border-radius:30px;
-box-shadow:0 25px 60px rgba(0,0,0,0.25);
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(12px);
+padding:70px;
+border-radius:35px;
+box-shadow:0 30px 70px rgba(0,0,0,0.25);
 animation:fadeIn 1s ease;
 }
 
 #stage1 h1{
-font-size:4rem;
+font-size:4.5rem;
 color:#ff006e;
 text-shadow:3px 3px 0 white;
 }
 
 .btn{
-padding:20px 55px;
-font-size:2rem;
+padding:22px 65px;
+font-size:2.2rem;
 background:linear-gradient(45deg,#ff006e,#ffbe0b);
 color:white;
 border:none;
-border-radius:60px;
+border-radius:70px;
 cursor:pointer;
-box-shadow:0 10px 0 rgba(0,0,0,0.2);
-transition:.2s;
+box-shadow:0 12px 0 rgba(0,0,0,0.2);
+transition:.25s;
 }
 
-.btn:hover{transform:scale(1.1)}
+.btn:hover{transform:scale(1.12)}
 
+/* STAGE 2 CAKE NEW STYLE */
 #stage2{display:none}
 
 .cake{
 position:relative;
-width:320px;
-height:260px;
-margin:50px auto;
-animation:floatCake 3s ease-in-out infinite;
+width:380px;
+height:300px;
+margin:60px auto;
+animation:cakePulse 3s ease-in-out infinite;
 }
 
-@keyframes floatCake{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+@keyframes cakePulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.05)}
 }
 
 .layer{
 position:absolute;
-width:320px;
-height:110px;
-border-radius:40px;
-background:linear-gradient(#ff99c8,#ff4d6d);
+width:380px;
+height:120px;
+border-radius:50px;
+background:linear-gradient(90deg,#ff758f,#ffb3c1,#ffc2d1);
 }
 
 .layer-top{top:0}
-.layer-middle{top:60px;background:linear-gradient(#ffd6ff,#cdb4db)}
-.layer-bottom{top:120px;background:linear-gradient(#caffbf,#9bf6ff)}
+.layer-middle{top:80px;background:linear-gradient(90deg,#bde0fe,#a2d2ff,#cdb4db)}
+.layer-bottom{top:160px;background:linear-gradient(90deg,#caffbf,#9bf6ff,#ffd6a5)}
 
 .icing{
 position:absolute;
-width:300px;
-height:90px;
-top:5px;
-left:10px;
+width:350px;
+height:110px;
+top:8px;
+left:15px;
 background:white;
-border-radius:40px;
+border-radius:50px;
 z-index:2;
 }
 
 .candle{
-width:22px;
-height:70px;
+width:28px;
+height:90px;
 background:repeating-linear-gradient(45deg,red,red 6px,white 6px,white 12px);
 position:absolute;
-top:-45px;
+top:-70px;
 left:50%;
-margin-left:-11px;
-border-radius:10px;
+margin-left:-14px;
+border-radius:12px;
 }
 
 .flame{
 position:absolute;
-width:22px;
-height:45px;
+width:28px;
+height:55px;
 background:orange;
-top:-45px;
+top:-55px;
 left:0;
 border-radius:50%;
 animation:flicker 1s infinite;
@@ -126,13 +128,14 @@ cursor:pointer;
 
 @keyframes flicker{
 0%,100%{transform:scaleY(1)}
-50%{transform:scaleY(1.3)}
+50%{transform:scaleY(1.35)}
 }
 
 .puff-out{animation:puff .6s forwards}
 
 @keyframes puff{to{transform:scale(0);opacity:0}}
 
+/* STAGE 3 */
 #stage3{
 display:none;
 width:100%;
@@ -147,25 +150,33 @@ padding:20px;
 
 .images-container{
 display:flex;
-gap:40px;
-margin-top:20px;
+gap:60px;
+margin-top:30px;
 align-items:flex-end;
 }
 
 .char-img{
-height:260px;
+height:320px;
 animation:bounce 2s infinite;
 }
 
-#crew-img{height:340px}
+#crew-img{height:420px}
 
 @keyframes bounce{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
+50%{transform:translateY(-25px)}
 }
 
-#specialBtn{margin-top:35px}
+.captain-msg{
+font-family:'Great Vibes',cursive;
+font-size:2rem;
+max-width:900px;
+margin-top:30px;
+}
 
+#specialBtn{margin-top:40px}
+
+/* STAGE 4 */
 #stage4{
 display:none;
 position:fixed;
@@ -175,22 +186,23 @@ width:100%;
 height:100%;
 background:linear-gradient(135deg,#ff006e,#8338ec);
 color:white;
-padding:60px 30px;
+padding:70px 30px;
 overflow:auto;
 }
 
 #stage4 p{
-font-size:1.3rem;
-max-width:800px;
+font-family:'Poppins',sans-serif;
+font-size:1.5rem;
+max-width:900px;
 margin:auto;
-line-height:1.8;
+line-height:1.9;
 }
 
 #stage4 img{
-margin-top:30px;
-width:320px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.4);
+margin-top:40px;
+width:380px;
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
 </style>
@@ -205,7 +217,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.4);
 </div>
 
 <div id="stage2">
-<h2 style="font-size:3rem">Make a Wish 🎂</h2>
+<h2 style="font-size:3.4rem">Make a Wish 🎂</h2>
 <div class="cake">
 <div class="layer layer-bottom"></div>
 <div class="layer layer-middle"></div>
@@ -213,22 +225,26 @@ box-shadow:0 15px 40px rgba(0,0,0,.4);
 <div class="icing"></div>
 <div class="candle"><div class="flame" id="flame" onclick="blowCandle()"></div></div>
 </div>
-<p style="font-size:1.4rem">Tap flame to blow</p>
+<p style="font-size:1.6rem">Tap flame to blow</p>
 </div>
 
 <div id="stage3">
-<h2 style="font-size:3rem">Welcome Aboard Your Dream Year ✈️</h2>
+<h2 style="font-size:3.5rem">Welcome Aboard Your Dream Year ✈️</h2>
 <div class="images-container">
 <img src="shin.jpg" class="char-img">
 <img src="crew.png" id="crew-img">
 <img src="bob.webp" class="char-img">
 </div>
 
+<div class="captain-msg">
+“Ladies and gentlemen, this is your captain speaking. Please welcome Shruti, our future Indigo cabin crew star.” 🎉💝🎊
+</div>
+
 <button id="specialBtn" class="btn" onclick="openSpecial()">A Special Message For You 💌</button>
 </div>
 
 <div id="stage4">
-<h2 style="font-size:3rem">Special Message 💖</h2>
+<h2 style="font-size:3.5rem">Special Message 💖</h2>
 <br>
 <p>
 Hii Vent Fairy! Once again, wishing you a very happy birthday!!!<br><br>
@@ -247,7 +263,7 @@ Cheers to 20!!!😎🎉
 
 <script>
 function createConfetti(){
-for(let i=0;i<80;i++){
+for(let i=0;i<100;i++){
 let c=document.createElement('div');
 c.className='confetti';
 c.style.left=Math.random()*100+'vw';
