@@ -1,304 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Shruti!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shruti!</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-body{
-margin:0;
-background: radial-gradient(circle at top,#ffe066,#ff4da6);
-font-family:'Fredoka',sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-text-align:center;
-}
+    <style>
+        body {
+            margin: 0;
+            background: radial-gradient(circle at top, #ffe066, #ff4da6);
+            font-family: 'Fredoka', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
 
-h1,h2{font-family:'Pacifico',cursive;}
+        h1, h2 { font-family: 'Pacifico', cursive; }
 
-.confetti{
-position:fixed;
-width:14px;
-height:14px;
-top:-20px;
-animation:fall linear forwards;
-}
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -20px;
+            z-index: 100;
+            animation: fall linear forwards;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
-@keyframes fall{
-to{transform:translateY(110vh) rotate(720deg);opacity:0}
-}
+        /* --- STAGE 1: GREETING --- */
+        #stage1 {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 35px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+            animation: fadeIn 1s ease;
+            width: 80%;
+            max-width: 600px;
+        }
 
-/* STAGE 1 */
-#stage1{
-background:rgba(255,255,255,0.3);
-backdrop-filter:blur(12px);
-padding:70px;
-border-radius:35px;
-box-shadow:0 30px 70px rgba(0,0,0,0.25);
-animation:fadeIn 1s ease;
-}
+        #stage1 h1 {
+            font-size: 3.5rem; /* Adjusted for mobile safety */
+            color: #ff006e;
+            text-shadow: 3px 3px 0 white;
+            line-height: 1.2;
+        }
 
-#stage1 h1{
-font-size:4.5rem;
-color:#ff006e;
-text-shadow:3px 3px 0 white;
-}
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ff006e, #ffbe0b);
+            color: white;
+            border: none;
+            border-radius: 70px;
+            cursor: pointer;
+            box-shadow: 0 12px 0 rgba(0,0,0,0.2);
+            transition: .25s;
+            margin-top: 20px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        .btn:hover { transform: scale(1.12); }
 
-.btn{
-padding:22px 65px;
-font-size:2.2rem;
-background:linear-gradient(45deg,#ff006e,#ffbe0b);
-color:white;
-border:none;
-border-radius:70px;
-cursor:pointer;
-box-shadow:0 12px 0 rgba(0,0,0,0.2);
-transition:.25s;
-}
+        /* --- STAGE 2: CAKE --- */
+        #stage2 { display: none; }
 
-.btn:hover{transform:scale(1.12)}
+        .cake {
+            position: relative;
+            width: 300px; /* Adjusted size */
+            height: 200px;
+            margin: 60px auto;
+        }
 
-/* STAGE 2 CAKE NEW STYLE */
-#stage2{display:none}
+        .layer {
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #ff758f, #ffb3c1, #ffc2d1);
+        }
+        .layer-top { top: 0px; z-index: 2; }
+        .layer-middle { top: 60px; background: linear-gradient(90deg, #bde0fe, #a2d2ff, #cdb4db); z-index: 1; }
+        .layer-bottom { top: 120px; background: linear-gradient(90deg, #caffbf, #9bf6ff, #ffd6a5); z-index: 0; }
 
-.cake{
-position:relative;
-width:380px;
-height:300px;
-margin:60px auto;
-animation:cakePulse 3s ease-in-out infinite;
-}
+        .icing {
+            position: absolute;
+            width: 280px;
+            height: 90px;
+            top: 5px;
+            left: 10px;
+            background: white;
+            border-radius: 50px;
+            z-index: 3;
+        }
 
-@keyframes cakePulse{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.05)}
-}
+        .candle {
+            width: 20px;
+            height: 80px;
+            background: repeating-linear-gradient(45deg, red, red 6px, white 6px, white 12px);
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            margin-left: -10px;
+            border-radius: 12px;
+            z-index: 4;
+        }
 
-.layer{
-position:absolute;
-width:380px;
-height:120px;
-border-radius:50px;
-background:linear-gradient(90deg,#ff758f,#ffb3c1,#ffc2d1);
-}
+        .flame {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background: orange;
+            top: -35px;
+            left: 0;
+            border-radius: 50%;
+            animation: flicker 0.5s infinite alternate;
+            cursor: pointer;
+            box-shadow: 0 0 20px orange;
+        }
 
-.layer-top{top:0}
-.layer-middle{top:80px;background:linear-gradient(90deg,#bde0fe,#a2d2ff,#cdb4db)}
-.layer-bottom{top:160px;background:linear-gradient(90deg,#caffbf,#9bf6ff,#ffd6a5)}
+        /* Large invisible hit-box for easier clicking */
+        .flame::after {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px; right: -20px; bottom: -20px;
+        }
 
-.icing{
-position:absolute;
-width:350px;
-height:110px;
-top:8px;
-left:15px;
-background:white;
-border-radius:50px;
-z-index:2;
-}
+        @keyframes flicker { 0% { transform: scale(1); } 100% { transform: scale(1.2); } }
+        .puff-out { animation: puff .6s forwards; }
+        @keyframes puff { to { transform: scale(0); opacity: 0; } }
 
-.candle{
-width:28px;
-height:90px;
-background:repeating-linear-gradient(45deg,red,red 6px,white 6px,white 12px);
-position:absolute;
-top:-70px;
-left:50%;
-margin-left:-14px;
-border-radius:12px;
-}
+        /* --- STAGE 3: AIRPORT SCENE --- */
+        #stage3 {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #0066cc, #003366);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-.flame{
-position:absolute;
-width:28px;
-height:55px;
-background:orange;
-top:-55px;
-left:0;
-border-radius:50%;
-animation:flicker 1s infinite;
-cursor:pointer;
-}
+        .images-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
 
-@keyframes flicker{
-0%,100%{transform:scaleY(1)}
-50%{transform:scaleY(1.35)}
-}
+        .char-img { height: 150px; animation: bounce 2s infinite; object-fit: contain; }
+        #crew-img { height: 250px; border-radius: 10px; border: 3px solid white; }
 
-.puff-out{animation:puff .6s forwards}
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-@keyframes puff{to{transform:scale(0);opacity:0}}
+        .captain-msg {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px black;
+        }
 
-/* STAGE 3 */
-#stage3{
-display:none;
-width:100%;
-height:100vh;
-background:linear-gradient(to bottom,#0066cc,#003366);
-color:white;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
+        /* --- STAGE 4: SPECIAL MESSAGE (LETTER) --- */
+        #stage4 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            color: white;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Allows scrolling */
+            z-index: 9999;
+        }
 
-.images-container{
-display:flex;
-gap:60px;
-margin-top:30px;
-align-items:flex-end;
-}
+        #stage4 p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 15px;
+        }
 
-.char-img{
-height:320px;
-animation:bounce 2s infinite;
-}
+        #stage4 img {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 50px; /* Space at bottom for scrolling */
+        }
 
-#crew-img{height:420px}
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 600px) {
+            #stage1 h1 { font-size: 2.5rem; }
+            #stage3 h2 { font-size: 2rem !important; }
+            .char-img { height: 100px; }
+            #crew-img { height: 180px; }
+            .captain-msg { font-size: 1.4rem; }
+        }
 
-@keyframes bounce{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-25px)}
-}
-
-.captain-msg{
-font-family:'Great Vibes',cursive;
-font-size:2rem;
-max-width:900px;
-margin-top:30px;
-}
-
-#specialBtn{margin-top:40px}
-
-/* STAGE 4 */
-#stage4{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(135deg,#ff006e,#8338ec);
-color:white;
-padding:70px 30px;
-overflow:auto;
-}
-
-#stage4 p{
-font-family:'Poppins',sans-serif;
-font-size:1.5rem;
-max-width:900px;
-margin:auto;
-line-height:1.9;
-}
-
-#stage4 img{
-margin-top:40px;
-width:380px;
-border-radius:25px;
-box-shadow:0 20px 50px rgba(0,0,0,.4);
-}
-
-</style>
+    </style>
 </head>
 
 <body>
 
-<div id="stage1">
-<h1>Hii Shrutiiiiiii!!<br>Happppyyy Birthdayyyyyy!!!!</h1>
-<br>
-<button class="btn" onclick="goToStage2()">Click Here 🎉</button>
-</div>
+    <div id="stage1">
+        <h1>Hii Shrutiiiiiii!!<br>Happppyyy Birthdayyyyyy!!!!</h1>
+        <button class="btn" onclick="goToStage2()">Click Here 🎉</button>
+    </div>
 
-<div id="stage2">
-<h2 style="font-size:3.4rem">Make a Wish 🎂</h2>
-<div class="cake">
-<div class="layer layer-bottom"></div>
-<div class="layer layer-middle"></div>
-<div class="layer layer-top"></div>
-<div class="icing"></div>
-<div class="candle"><div class="flame" id="flame" onclick="blowCandle()"></div></div>
-</div>
-<p style="font-size:1.6rem">Tap flame to blow</p>
-</div>
+    <div id="stage2">
+        <h2 style="font-size: 2.5rem; color: #004165;">Make a Wish 🎂</h2>
+        <div class="cake">
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="icing"></div>
+            <div class="candle">
+                <div class="flame" id="flame" onclick="blowCandle()"></div>
+            </div>
+        </div>
+        <p style="font-size: 1.2rem; color: #333; font-weight: bold;">Tap flame to blow</p>
+    </div>
 
-<div id="stage3">
-<h2 style="font-size:3.5rem">Welcome Aboard Your Dream Year ✈️</h2>
-<div class="images-container">
-<img src="shin.jpg" class="char-img">
-<img src="crew.png" id="crew-img">
-<img src="bob.webp" class="char-img">
-</div>
+    <div id="stage3">
+        <h2 style="font-size: 3rem; text-shadow: 2px 2px #000;">Welcome Aboard! ✈️</h2>
+        
+        <div class="images-container">
+            <img src="shin.jpg" class="char-img">
+            <img src="crew.png" id="crew-img">
+            <img src="bob.webp" class="char-img">
+        </div>
 
-<div class="captain-msg">
-“Ladies and gentlemen, this is your captain speaking. Please welcome Shruti, our future Indigo cabin crew star.” 🎉💝🎊
-</div>
+        <div class="captain-msg">
+            “Ladies and gentlemen, this is your captain speaking. Please welcome Shruti, our future Indigo cabin crew star.” 🎉💝🎊
+        </div>
 
-<button id="specialBtn" class="btn" onclick="openSpecial()">A Special Message For You 💌</button>
-</div>
+        <button class="btn" onclick="openSpecial()" style="background: white; color: #0066cc; font-size: 1.2rem; margin-top: 30px;">
+            A Special Message For You 💌
+        </button>
+    </div>
 
-<div id="stage4">
-<h2 style="font-size:3.5rem">Special Message 💖</h2>
-<br>
-<p>
-Hii Vent Fairy! Once again, wishing you a very happy birthday!!!<br><br>
+    <div id="stage4">
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">Special Message 💖</h2>
+        
+        <p>
+            Hii Vent Fairy! Once again, wishing you a very happy birthday!!!<br><br>
 
-Thank you for being such a wonderful and lovely friend since UKG till now. Honestly, that’s something we should flex about. Even though we don’t have pictures together, I have countless, legendary memories with you 😅😅, and I truly cherish all those amazing school days, especially when we used to sit together on the same bench.<br><br>
+            Thank you for being such a wonderful and lovely friend since UKG till now. Honestly, that’s something we should flex about. Even though we don’t have pictures together, I have countless, legendary memories with you 😅😅, and I truly cherish all those amazing school days, especially when we used to sit together on the same bench.<br><br>
 
-And honestly, thank you for being there for me when I was going through a lot. That really means more than I can explain. You really are a good philosopher, lowkey philosopher + therapist combo 😅🗿<br><br>
+            And honestly, thank you for being there for me when I was going through a lot. That really means more than I can explain. You really are a good philosopher, lowkey philosopher + therapist combo 😅🗿<br><br>
 
-I genuinely hope you stay happy always, achieve every dream you have, and become crazy successful (so I can proudly say I knew you since UKG 😌🔥🔥)<br><br>
+            I genuinely hope you stay happy always, achieve every dream you have, and become crazy successful (so I can proudly say I knew you since UKG 😌🔥🔥)<br><br>
 
-Cheers to 20!!!😎🎉
-</p>
+            Cheers to 20!!!😎🎉
+        </p>
 
-<img src="shru.png">
-</div>
+        <img src="shru.png" alt="Shruti">
+    </div>
 
-<script>
-function createConfetti(){
-for(let i=0;i<100;i++){
-let c=document.createElement('div');
-c.className='confetti';
-c.style.left=Math.random()*100+'vw';
-c.style.background=`hsl(${Math.random()*360},100%,50%)`;
-c.style.animationDuration=(Math.random()*3+2)+'s';
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),5000);
-}
-}
+    <script>
+        function createConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+            for (let i = 0; i < 50; i++) {
+                let c = document.createElement('div');
+                c.className = 'confetti';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 5000);
+            }
+        }
 
-createConfetti();
+        // Start confetti immediately on load
+        createConfetti();
 
-function goToStage2(){
-createConfetti();
-document.getElementById('stage1').style.display='none';
-document.getElementById('stage2').style.display='block';
-}
+        function goToStage2() {
+            document.getElementById('stage1').style.display = 'none';
+            document.getElementById('stage2').style.display = 'block';
+        }
 
-function blowCandle(){
-let flame=document.getElementById('flame');
-flame.classList.remove('flame');
-flame.classList.add('puff-out');
+        function blowCandle() {
+            let flame = document.getElementById('flame');
+            flame.classList.remove('flame'); // Stops animation
+            flame.classList.add('puff-out'); // Adds vanishing animation
 
-setTimeout(()=>{
-document.getElementById('stage2').style.display='none';
-document.getElementById('stage3').style.display='flex';
-createConfetti();
-},800);
-}
+            setTimeout(() => {
+                document.getElementById('stage2').style.display = 'none';
+                document.getElementById('stage3').style.display = 'flex';
+                createConfetti(); // More confetti for the reveal!
+            }, 800);
+        }
 
-function openSpecial(){
-createConfetti();
-document.getElementById('stage4').style.display='block';
-}
-</script>
+        function openSpecial() {
+            createConfetti();
+            document.getElementById('stage4').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
