@@ -4,117 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Shruti!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Better Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        /* --- STYLES --- */
         body {
-            margin: 0; padding: 0;
-            background: linear-gradient(135deg, #FFD700, #FF69B4);
-            font-family: 'Poppins', sans-serif;
-            display: flex; justify-content: center; align-items: center;
-            height: 100vh; overflow: hidden; text-align: center; color: #333;
+            margin: 0;
+            background: radial-gradient(circle at top, #ffe066, #ff4da6);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            color: #222;
         }
-        h1, h2 { font-family: 'Bangers', cursive; letter-spacing: 2px; text-transform: uppercase; }
-        
+
+        h1, h2 {
+            font-family: 'Luckiest Guy', cursive;
+            letter-spacing: 2px;
+        }
+
+        /* PARTY POPPERS */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
         /* STAGE 1 */
         #stage1 {
-            display: flex; flex-direction: column; align-items: center;
-            animation: fadeIn 1s ease; padding: 20px;
-            background: rgba(255,255,255,0.2); border-radius: 20px; backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
         }
-        #stage1 h1 { font-size: 3rem; color: #FF007F; text-shadow: 3px 3px 0px #FFFF00; margin-bottom: 20px; line-height: 1.2; }
+
+        #stage1 h1 {
+            font-size: 3.5rem;
+            color: #ff006e;
+            text-shadow: 3px 3px 0 #fff;
+        }
+
         .btn {
-            padding: 15px 40px; font-family: 'Bangers', cursive; font-size: 1.8rem;
-            background-color: #FF4500; color: yellow; border: 4px solid yellow;
-            border-radius: 50px; cursor: pointer; box-shadow: 0 6px 0px #992a00; transition: all 0.1s;
+            padding: 16px 45px;
+            font-family: 'Luckiest Guy';
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff006e, #ffbe0b);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+            transition: 0.2s;
         }
-        .btn:hover { transform: scale(1.05); }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
 
         /* STAGE 2 */
         #stage2 { display: none; }
-        #stage2 h2 { color: #004165; font-size: 2.5rem; text-shadow: 2px 2px white; }
-        .cake { position: relative; width: 250px; height: 200px; margin: 50px auto; }
-        .plate { width: 270px; height: 110px; position: absolute; bottom: -10px; left: -10px; background-color: #ddd; border-radius: 50%; box-shadow: 0 5px 40px rgba(0,0,0,0.5); }
-        .layer { position: absolute; width: 250px; height: 100px; border-radius: 50%; background-color: #6D4C41; box-shadow: 0 2px 0px #5D4037, 0 4px 0px #3E2723, 0 10px 0px #3E2723, 0 20px 0px #3E2723; }
-        .layer-top { top: 0px; } .layer-middle { top: 33px; } .layer-bottom { top: 66px; }
-        .icing { top: 2px; left: 5px; background-color: #FFFFFF; width: 240px; height: 90px; border-radius: 50%; position: absolute; z-index: 1; }
-        .candle { background-color: #FF0000; width: 16px; height: 50px; border-radius: 8px / 4px; position: absolute; top: -20px; left: 50%; margin-left: -8px; z-index: 10; background-image: repeating-linear-gradient(45deg, #ffffff 0px, #ffffff 5px, #ff0000 5px, #ff0000 10px); }
-        .flame { position: absolute; background-color: orange; width: 15px; height: 35px; border-radius: 10px 10px 4px 4px; top: -34px; left: 50%; margin-left: -7.5px; z-index: 10; animation: flicker 1s infinite; cursor: pointer; }
-        @keyframes flicker { 0% { transform: skewX(5deg); } 100% { transform: skewX(-5deg); } }
+
+        .cake {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 50px auto;
+        }
+
+        .plate {
+            width: 270px;
+            height: 110px;
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            box-shadow: 0 5px 40px rgba(0,0,0,0.5);
+        }
+
+        .layer {
+            position: absolute;
+            width: 250px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(#7b2cbf, #5a189a);
+        }
+
+        .layer-top { top: 0px; }
+        .layer-middle { top: 33px; }
+        .layer-bottom { top: 66px; }
+
+        .icing {
+            top: 2px;
+            left: 5px;
+            background-color: white;
+            width: 240px;
+            height: 90px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .candle {
+            background: repeating-linear-gradient(45deg, red, red 5px, white 5px, white 10px);
+            width: 16px;
+            height: 50px;
+            border-radius: 8px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            margin-left: -8px;
+        }
+
+        .flame {
+            position: absolute;
+            background: orange;
+            width: 15px;
+            height: 35px;
+            border-radius: 10px;
+            top: -34px;
+            left: 50%;
+            margin-left: -7.5px;
+            animation: flicker 1s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes flicker {
+            0% { transform: scaleY(1); }
+            50% { transform: scaleY(1.2); }
+            100% { transform: scaleY(1); }
+        }
+
         .puff-out { animation: puff 0.5s forwards; }
-        @keyframes puff { to { transform: scale(0); opacity: 0; } }
+
+        @keyframes puff {
+            to { transform: scale(0); opacity: 0; }
+        }
 
         /* STAGE 3 */
-        #stage3 { display: none; width: 100%; height: 100vh; background: linear-gradient(to bottom, #006494, #004165); color: white; flex-direction: column; justify-content: center; align-items: center; position: relative; }
-        #stage3 h2 { font-size: 3rem; color: #FFD700; text-shadow: 3px 3px 0 #000; margin-bottom: 30px; }
-        #flash { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; pointer-events: none; }
-        .flash-anim { animation: flashEffect 0.8s ease-out; }
-        @keyframes flashEffect { 0% { opacity: 1; } 100% { opacity: 0; } }
-        .images-container { display: flex; justify-content: center; align-items: flex-end; gap: 15px; margin-top: 20px; }
-        
-        /* IMAGE STYLES - Ensures they fit nicely */
-        .char-img { height: 180px; width: auto; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); object-fit: contain; }
-        #crew-img { height: 250px; width: auto; z-index: 10; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); object-fit: contain; }
-        .shake { animation: shake 0.5s infinite; }
-        @keyframes shake { 0% { transform: rotate(0deg); } 25% { transform: rotate(5deg); } 75% { transform: rotate(-5deg); } 100% { transform: rotate(0deg); } }
+        #stage3 {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #0066cc, #003366);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .images-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .char-img {
+            height: 180px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        #crew-img {
+            height: 250px;
+        }
+
     </style>
 </head>
 <body>
 
-    <div id="stage1">
-        <h1>Hii Shrutiiiiiii!! <br>Happppyyy birthdayyyyyy!!!!</h1>
-        <p style="font-weight: 700; font-size: 1.2rem;">We have a surprise for you...</p>
-        <br>
-        <button class="btn" onclick="goToStage2()">Click Here :)</button>
-    </div>
+<div id="stage1">
+    <h1>Hii Shrutiiiiiii!!<br>Happppyyy Birthdayyyyyy!!!!</h1>
+    <p style="font-weight:600;font-size:1.2rem">We have a surprise for you</p>
+    <br>
+    <button class="btn" onclick="goToStage2()">Click Here 🎉</button>
+</div>
 
-    <div id="stage2">
-        <h2>Make a wish!</h2>
-        <div class="cake">
-            <div class="plate"></div>
-            <div class="layer layer-bottom"></div>
-            <div class="layer layer-middle"></div>
-            <div class="layer layer-top"></div>
-            <div class="icing"></div>
-            <div class="candle">
-                <div class="flame" id="flame" onclick="blowCandle()"></div>
-            </div>
+<div id="stage2">
+    <h2>Make a Wish 🎂</h2>
+    <div class="cake">
+        <div class="plate"></div>
+        <div class="layer layer-bottom"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-top"></div>
+        <div class="icing"></div>
+        <div class="candle">
+            <div class="flame" id="flame" onclick="blowCandle()"></div>
         </div>
-        <p style="font-weight: 700;">Tap the flame to blow it out!</p>
+    </div>
+    <p style="font-weight:700">Tap the flame to blow it out</p>
+</div>
+
+<div id="stage3">
+    <h2>Welcome Aboard Your Dream Year ✈️</h2>
+
+    <div class="images-container">
+        <img src="shin.jpg" class="char-img">
+        <img src="crew.png" id="crew-img">
+        <img src="bob.webp" class="char-img">
     </div>
 
-    <div id="stage3">
-        <div id="flash"></div>
-        <h2>Welcome Aboard your Dream Year! ✈️</h2>
-        
-        <div class="images-container">
-            <img src="shin.jpg" alt="Shinchan" class="char-img shake">
-            <img src="crew.png" alt="Indigo Crew" id="crew-img">
-            <img src="bob.webp" alt="Spongebob" class="char-img">
-        </div>
+    <p style="font-size:1.3rem;font-weight:600;margin-top:30px">
+        Captain Announcement:<br>
+        Shruti is going to fly high this year 💙
+    </p>
+</div>
 
-        <p style="font-size: 1.3rem; font-weight: 700; margin-top: 30px; text-shadow: 1px 1px 3px black;">
-            "Ladies and Gentlemen, this is your Captain speaking...<br>Shruti is going to fly high this year!"
-        </p>
-    </div>
+<script>
+function createConfetti(){
+    for(let i=0;i<60;i++){
+        let conf=document.createElement('div');
+        conf.className='confetti';
+        conf.style.left=Math.random()*100+'vw';
+        conf.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        conf.style.animationDuration=(Math.random()*3+2)+'s';
+        document.body.appendChild(conf);
+        setTimeout(()=>conf.remove(),5000);
+    }
+}
 
-    <script>
-        function goToStage2() {
-            document.getElementById('stage1').style.display = 'none';
-            document.getElementById('stage2').style.display = 'block';
-        }
-        function blowCandle() {
-            var flame = document.getElementById('flame');
-            flame.classList.remove('flame');
-            flame.classList.add('puff-out');
-            setTimeout(function() {
-                document.getElementById('stage2').style.display = 'none';
-                document.getElementById('stage3').style.display = 'flex'; 
-                var flash = document.getElementById('flash');
-                flash.classList.add('flash-anim');
-            }, 1000);
-        }
-    </script>
+createConfetti();
+
+function goToStage2(){
+    createConfetti();
+    document.getElementById('stage1').style.display='none';
+    document.getElementById('stage2').style.display='block';
+}
+
+function blowCandle(){
+    let flame=document.getElementById('flame');
+    flame.classList.remove('flame');
+    flame.classList.add('puff-out');
+
+    setTimeout(()=>{
+        document.getElementById('stage2').style.display='none';
+        document.getElementById('stage3').style.display='flex';
+        createConfetti();
+    },800);
+}
+</script>
+
 </body>
 </html>
