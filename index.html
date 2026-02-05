@@ -138,6 +138,18 @@ border-radius:15px;
 max-width:90%;
 line-height:1.5;
 letter-spacing:.5px;
+animation:captionFadeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes captionFadeGlow{
+0%{
+opacity:.8;
+text-shadow:0 0 5px rgba(255,255,255,0.3), 0 0 10px rgba(255,214,10,0.3);
+}
+100%{
+opacity:1;
+text-shadow:0 0 12px rgba(255,255,255,0.8), 0 0 25px rgba(255,214,10,0.8);
+}
 }
 
 /* Button Under Crew */
