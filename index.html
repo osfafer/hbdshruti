@@ -13,7 +13,7 @@
 body{
 margin:0;
 padding:0;
-background:radial-gradient(circle at top,#ffe066,#ff4da6);
+background:radial-gradient(circle at top,#ffe066,#ff9ecf);
 font-family:'Poppins',sans-serif;
 height:100vh;
 overflow:hidden;
@@ -23,7 +23,23 @@ align-items:center;
 text-align:center;
 }
 
-/* STAGE 1 GLOW CURSIVE */
+/* FLYING PLANE */
+.flying-plane{
+position:fixed;
+font-size:40px;
+top:20%;
+left:-80px;
+animation:flyAcross 12s linear infinite;
+z-index:50;
+}
+
+@keyframes flyAcross{
+0%{left:-80px;transform:rotate(5deg)}
+50%{transform:rotate(-5deg)}
+100%{left:110%;transform:rotate(5deg)}
+}
+
+/* STAGE 1 SOFTER COLOR + GLOW */
 #stage1{
 background:rgba(255,255,255,0.25);
 backdrop-filter:blur(10px);
@@ -37,14 +53,14 @@ animation:popIn .8s ease;
 #stage1 h1{
 font-family:'Pacifico',cursive;
 font-size:3rem;
-color:#ff006e;
-animation:glowText 2.5s ease-in-out infinite alternate;
+color:#6a00f4;
+animation:glowText 3s ease-in-out infinite alternate;
 line-height:1.2;
 }
 
 @keyframes glowText{
-0%{text-shadow:0 0 8px #fff,0 0 15px #ffbe0b,0 0 25px #ff006e}
-100%{text-shadow:0 0 15px #fff,0 0 30px #ffbe0b,0 0 45px #ff006e}
+0%{text-shadow:0 0 8px #ffffff,0 0 15px #a0c4ff,0 0 25px #bdb2ff}
+100%{text-shadow:0 0 18px #ffffff,0 0 35px #a0c4ff,0 0 55px #bdb2ff}
 }
 
 .btn{
@@ -52,12 +68,12 @@ font-family:'Poppins',sans-serif;
 font-weight:600;
 padding:12px 30px;
 font-size:1.1rem;
-background:#ff006e;
+background:#6a00f4;
 color:white;
 border:none;
 border-radius:50px;
 cursor:pointer;
-box-shadow:0 5px 15px rgba(255,0,110,0.4);
+box-shadow:0 5px 15px rgba(106,0,244,0.4);
 transition:.2s;
 }
 
@@ -127,19 +143,13 @@ margin-bottom:15px;
 
 .caption{
 font-family:'Great Vibes',cursive;
-font-size:1.4rem;
+font-size:1.5rem;
 margin:10px 15px 20px;
 background:rgba(0,0,0,.3);
 padding:14px;
 border-radius:15px;
 max-width:90%;
-line-height:1.5;
-animation:captionFadeGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes captionFadeGlow{
-0%{opacity:.8;text-shadow:0 0 5px rgba(255,255,255,.3),0 0 10px rgba(255,214,10,.3)}
-100%{opacity:1;text-shadow:0 0 12px rgba(255,255,255,.8),0 0 25px rgba(255,214,10,.8)}
+line-height:1.6;
 }
 
 .cartoon-row{display:flex;justify-content:center;gap:20px;width:100%;margin-top:10px}
@@ -148,7 +158,7 @@ animation:captionFadeGlow 3s ease-in-out infinite alternate;
 
 @keyframes shake{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-/* STAGE 4 COLORFUL LETTER */
+/* STAGE 4 */
 #stage4{
 display:none;
 position:fixed;
@@ -156,7 +166,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4,#fbc2eb,#a6c1ee);
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#a6c1ee);
 background-size:400% 400%;
 animation:gradientMove 12s ease infinite;
 overflow-y:auto;
@@ -171,31 +181,18 @@ z-index:999;
 }
 
 .letter-content{
-background:rgba(255,255,255,.85);
+background:rgba(255,255,255,.9);
 padding:25px 20px;
 border-radius:20px;
 box-shadow:0 15px 40px rgba(0,0,0,.2);
 margin-bottom:30px;
 }
 
-.letter-content h2{
-font-family:'Pacifico',cursive;
-font-size:2.6rem;
-color:#ff006e;
-margin-bottom:15px;
-}
+.letter-content h2{font-family:'Pacifico',cursive;font-size:2.6rem;color:#6a00f4;margin-bottom:15px}
 
-.letter-text{
-font-family:'Dancing Script',cursive;
-font-size:1.25rem;
-line-height:1.8;
-color:#333;
-text-align:left;
-}
+.letter-text{font-family:'Dancing Script',cursive;font-size:1.25rem;line-height:1.8;color:#333;text-align:left}
 
 #stage4 img{width:100%;max-width:300px;border-radius:15px;margin-top:20px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-
-@keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
 
 .confetti{position:fixed;width:10px;height:10px;z-index:100;animation:fall linear forwards;top:-10px}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
@@ -204,6 +201,8 @@ text-align:left;
 </head>
 
 <body>
+
+<div class="flying-plane">✈️</div>
 
 <div id="stage1">
 <h1>Hii Shrutiiii!! <br>Happy Birthdayyy!!!!</h1>
@@ -231,10 +230,7 @@ text-align:left;
 <div class="crew-container">
 <img src="crew.png" id="crew-img">
 
-<div class="caption">
-"Ladies and Gentlemen, this is your Captain speaking...<br>
-<strong>“Please welcome Shruti, our future Indigo cabin crew star.”</strong>"
-</div>
+<div class="caption" id="typedCaption"></div>
 
 <button class="btn" onclick="openSpecial()">Read Special Message 💌</button>
 </div>
@@ -263,6 +259,17 @@ text-align:left;
 </div>
 
 <script>
+const captionText="Ladies and Gentlemen, this is your Captain speaking... Please welcome Shruti, our future Indigo cabin crew star.";
+let index=0;
+
+function typeCaption(){
+if(index<captionText.length){
+document.getElementById('typedCaption').innerHTML+=captionText.charAt(index);
+index++;
+setTimeout(typeCaption,40);
+}
+}
+
 function burstConfetti(){
 const colors=['#ff006e','#8338ec','#ffbe0b','#fb5607','#3a86ff'];
 for(let i=0;i<60;i++){
@@ -290,6 +297,7 @@ setTimeout(()=>{
 document.getElementById('stage2').style.display='none';
 document.getElementById('stage3').style.display='flex';
 burstConfetti();
+typeCaption();
 },800);
 }
 
