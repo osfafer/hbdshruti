@@ -13,7 +13,7 @@
 body{
 margin:0;
 padding:0;
-background:radial-gradient(circle at top,#ffe066,#ff9ecf);
+background:radial-gradient(circle at top,#ffe066,#ff4da6);
 font-family:'Poppins',sans-serif;
 height:100vh;
 overflow:hidden;
@@ -23,23 +23,7 @@ align-items:center;
 text-align:center;
 }
 
-/* FLYING PLANE */
-.flying-plane{
-position:fixed;
-font-size:40px;
-top:20%;
-left:-80px;
-animation:flyAcross 12s linear infinite;
-z-index:50;
-}
-
-@keyframes flyAcross{
-0%{left:-80px;transform:rotate(5deg)}
-50%{transform:rotate(-5deg)}
-100%{left:110%;transform:rotate(5deg)}
-}
-
-/* STAGE 1 SOFTER COLOR + GLOW */
+/* STAGE 1 */
 #stage1{
 background:rgba(255,255,255,0.25);
 backdrop-filter:blur(10px);
@@ -53,14 +37,14 @@ animation:popIn .8s ease;
 #stage1 h1{
 font-family:'Pacifico',cursive;
 font-size:3rem;
-color:#6a00f4;
-animation:glowText 3s ease-in-out infinite alternate;
+color:#ff006e;
+animation:glowText 2.5s ease-in-out infinite alternate;
 line-height:1.2;
 }
 
 @keyframes glowText{
-0%{text-shadow:0 0 8px #ffffff,0 0 15px #a0c4ff,0 0 25px #bdb2ff}
-100%{text-shadow:0 0 18px #ffffff,0 0 35px #a0c4ff,0 0 55px #bdb2ff}
+0%{text-shadow:0 0 8px #fff,0 0 15px #ffbe0b,0 0 25px #ff006e}
+100%{text-shadow:0 0 15px #fff,0 0 30px #ffbe0b,0 0 45px #ff006e}
 }
 
 .btn{
@@ -68,12 +52,12 @@ font-family:'Poppins',sans-serif;
 font-weight:600;
 padding:12px 30px;
 font-size:1.1rem;
-background:#6a00f4;
+background:#ff006e;
 color:white;
 border:none;
 border-radius:50px;
 cursor:pointer;
-box-shadow:0 5px 15px rgba(106,0,244,0.4);
+box-shadow:0 5px 15px rgba(255,0,110,0.4);
 transition:.2s;
 }
 
@@ -150,6 +134,7 @@ padding:14px;
 border-radius:15px;
 max-width:90%;
 line-height:1.6;
+min-height:80px;
 }
 
 .cartoon-row{display:flex;justify-content:center;gap:20px;width:100%;margin-top:10px}
@@ -188,7 +173,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.2);
 margin-bottom:30px;
 }
 
-.letter-content h2{font-family:'Pacifico',cursive;font-size:2.6rem;color:#6a00f4;margin-bottom:15px}
+.letter-content h2{font-family:'Pacifico',cursive;font-size:2.6rem;color:#ff006e;margin-bottom:15px}
 
 .letter-text{font-family:'Dancing Script',cursive;font-size:1.25rem;line-height:1.8;color:#333;text-align:left}
 
@@ -202,7 +187,10 @@ margin-bottom:30px;
 
 <body>
 
-<div class="flying-plane">✈️</div>
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+<source src="birthday.mp3" type="audio/mpeg">
+</audio>
 
 <div id="stage1">
 <h1>Hii Shrutiiii!! <br>Happy Birthdayyy!!!!</h1>
@@ -259,14 +247,15 @@ margin-bottom:30px;
 </div>
 
 <script>
-const captionText="Ladies and Gentlemen, this is your Captain speaking... Please welcome Shruti, our future Indigo cabin crew star.";
-let index=0;
+
+const captionText = "Ladies and Gentlemen, this is your Captain speaking... Please welcome Shruti, our future Indigo cabin crew star.";
+let index = 0;
 
 function typeCaption(){
-if(index<captionText.length){
-document.getElementById('typedCaption').innerHTML+=captionText.charAt(index);
+if(index < captionText.length){
+document.getElementById('typedCaption').innerHTML += captionText.charAt(index);
 index++;
-setTimeout(typeCaption,40);
+setTimeout(typeCaption, 40);
 }
 }
 
@@ -307,6 +296,7 @@ burstConfetti();
 }
 
 window.onload=burstConfetti;
+
 </script>
 
 </body>
