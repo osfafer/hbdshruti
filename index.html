@@ -1,239 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Happy Birthday Shruti!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday Shruti!</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- GLOBAL SETTINGS --- */
-        * { box-sizing: border-box; }
-        
-        body {
-            margin: 0; padding: 0;
-            background: radial-gradient(circle at top, #ffe066, #ff4da6);
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            display: flex; justify-content: center; align-items: center; text-align: center;
-        }
+<style>
+*{box-sizing:border-box}
 
-        /* --- STAGE 1: GREETING --- */
-        #stage1 {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            width: 85%;
-            animation: popIn 0.8s ease;
-        }
-        #stage1 h1 {
-            font-family: 'Bangers', cursive; 
-            font-size: 2.8rem; 
-            color: #ff006e;
-            text-shadow: 2px 2px 0 #ffbe0b;
-            margin: 0 0 20px 0;
-            line-height: 1.1;
-        }
+body{
+margin:0;
+padding:0;
+background:radial-gradient(circle at top,#ffe066,#ff4da6);
+font-family:'Poppins',sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
 
-        .btn {
-            font-family: 'Poppins', sans-serif; font-weight: 600;
-            padding: 12px 30px; font-size: 1.1rem;
-            background: #ff006e; color: white;
-            border: none; border-radius: 50px; cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
-            transition: transform 0.2s;
-        }
-        .btn:active { transform: scale(0.95); }
+/* STAGE 1 */
+#stage1{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+padding:30px 20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:85%;
+animation:popIn .8s ease;
+}
 
-        /* --- STAGE 2: CAKE --- */
-        #stage2 { display: none; width: 100%; }
-        #stage2 h2 {
-            font-family: 'Bangers', cursive; font-size: 2.5rem; color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px;
-        }
-        .cake-wrapper { transform: scale(0.8); margin-top: -20px; }
-        .cake { position: relative; width: 300px; height: 150px; margin: 50px auto 0; }
-        .layer { position: absolute; width: 300px; height: 100px; border-radius: 50px; }
-        .layer-top { top: 0px; background: #ffc2d1; z-index: 2; }
-        .layer-middle { top: 40px; background: #cdb4db; z-index: 1; }
-        .layer-bottom { top: 80px; background: #ffd6a5; z-index: 0; }
-        .icing { position: absolute; top: 0px; left: 10px; width: 280px; height: 90px; background: #fff; border-radius: 50px; z-index: 3; opacity: 0.9; }
-        .candle { width: 15px; height: 60px; background: repeating-linear-gradient(45deg, #ff0000, #ff0000 5px, #fff 5px, #fff 10px); position: absolute; top: -50px; left: 50%; transform: translateX(-50%); border-radius: 5px; z-index: 4; }
-        .flame { width: 20px; height: 35px; background: #ff9f1c; border-radius: 50% 50% 20% 20%; position: absolute; top: -35px; left: 50%; transform: translateX(-50%); animation: flicker 0.6s infinite alternate; cursor: pointer; z-index: 10; box-shadow: 0 0 15px #ff9f1c; }
-        .flame::after { content:''; position:absolute; top:-20px; left:-20px; right:-20px; bottom:-20px; } /* Hitbox */
-        @keyframes flicker { 0% { transform: translateX(-50%) scale(1); } 100% { transform: translateX(-50%) scale(1.2); } }
-        .puff-out { animation: puff 0.5s forwards; }
-        @keyframes puff { to { transform: translateX(-50%) scale(0); opacity: 0; } }
+#stage1 h1{
+font-family:'Bangers',cursive;
+font-size:2.8rem;
+color:#ff006e;
+text-shadow:2px 2px 0 #ffbe0b;
+margin:0 0 20px 0;
+line-height:1.1;
+}
 
-        /* --- STAGE 3: REVEAL (Fixed Images) --- */
-        #stage3 {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(to bottom, #023e8a, #0077b6);
-            color: white;
-            padding-top: 20px;
-        }
-        #stage3 h2 {
-            font-family: 'Bangers', cursive; font-size: 2.2rem; color: #ffd60a;
-            letter-spacing: 1px; margin-bottom: 20px; text-shadow: 2px 2px 0 #000;
-        }
+.btn{
+font-family:'Poppins',sans-serif;
+font-weight:600;
+padding:12px 30px;
+font-size:1.1rem;
+background:#ff006e;
+color:white;
+border:none;
+border-radius:50px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(255,0,110,0.4);
+transition:.2s;
+}
 
-        /* THE FIX: Flex Container for 3 images */
-        .images-row {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end; /* Align them at the bottom feet */
-            width: 100%;
-            padding: 0 10px; /* Safety padding */
-            gap: 5px; /* Small gap between images */
-        }
+.btn:active{transform:scale(.95)}
 
-        /* RESPONSIVE SIZING:
-           Shinchan (25%) | Crew (40%) | Spongebob (25%) 
-           Total = 90%, leaving space so they never overflow.
-        */
-        .char-img {
-            width: 25%;
-            height: auto; /* Maintains aspect ratio */
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
-        }
+/* STAGE 2 */
+#stage2{display:none;width:100%}
 
-        #crew-img {
-            width: 40%;
-            height: auto;
-            border: 3px solid #fff;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            z-index: 10;
-        }
+#stage2 h2{
+font-family:'Bangers',cursive;
+font-size:2.5rem;
+color:#fff;
+text-shadow:2px 2px 4px rgba(0,0,0,.3);
+margin-bottom:10px;
+}
 
-        .shake { animation: shake 2s infinite; }
+.cake-wrapper{transform:scale(.8);margin-top:-20px}
 
-        .caption {
-            font-family: 'Poppins', sans-serif; font-size: 0.9rem; line-height: 1.4;
-            margin: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px;
-            max-width: 90%;
-        }
+.cake{position:relative;width:300px;height:150px;margin:50px auto 0}
 
-        /* --- STAGE 4: LETTER --- */
-        #stage4 {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #fff0f3; color: #333; overflow-y: auto; padding: 20px; z-index: 999;
-        }
-        .letter-content {
-            background: white; padding: 25px 20px; border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 30px;
-        }
-        .letter-content h2 { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff006e; margin: 0 0 20px 0; }
-        .letter-text { font-family: 'Poppins', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #444; text-align: left; }
-        #stage4 img { width: 100%; max-width: 300px; border-radius: 10px; margin-top: 20px; }
+.layer{position:absolute;width:300px;height:100px;border-radius:50px}
+.layer-top{top:0;background:#ffc2d1;z-index:2}
+.layer-middle{top:40px;background:#cdb4db;z-index:1}
+.layer-bottom{top:80px;background:#ffd6a5;z-index:0}
 
-        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        @keyframes shake { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .confetti { position: fixed; width: 10px; height: 10px; z-index: 100; animation: fall linear forwards; top: -10px; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+.icing{position:absolute;top:0;left:10px;width:280px;height:90px;background:#fff;border-radius:50px;z-index:3;opacity:.9}
 
-    </style>
+.candle{width:15px;height:60px;background:repeating-linear-gradient(45deg,#ff0000,#ff0000 5px,#fff 5px,#fff 10px);position:absolute;top:-50px;left:50%;transform:translateX(-50%);border-radius:5px;z-index:4}
+
+.flame{width:20px;height:35px;background:#ff9f1c;border-radius:50% 50% 20% 20%;position:absolute;top:-35px;left:50%;transform:translateX(-50%);animation:flicker .6s infinite alternate;cursor:pointer;z-index:10;box-shadow:0 0 15px #ff9f1c}
+
+@keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.2)}}
+
+.puff-out{animation:puff .5s forwards}
+@keyframes puff{to{transform:translateX(-50%) scale(0);opacity:0}}
+
+/* STAGE 3 NEW LAYOUT */
+#stage3{
+display:none;
+flex-direction:column;
+align-items:center;
+width:100%;
+height:100vh;
+background:linear-gradient(to bottom,#023e8a,#0077b6);
+color:white;
+padding-top:20px;
+}
+
+#stage3 h2{
+font-family:'Bangers',cursive;
+font-size:2.2rem;
+color:#ffd60a;
+margin-bottom:20px;
+text-shadow:2px 2px 0 #000;
+}
+
+/* Crew First */
+.crew-container{
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+#crew-img{
+width:65%;
+max-width:320px;
+height:auto;
+border:3px solid #fff;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.5);
+margin-bottom:15px;
+}
+
+.caption{
+font-size:.95rem;
+margin:10px 15px 20px;
+background:rgba(0,0,0,.3);
+padding:12px;
+border-radius:15px;
+max-width:90%;
+}
+
+/* Button Under Crew */
+
+/* Cartoon Row Below */
+.cartoon-row{
+display:flex;
+justify-content:center;
+gap:20px;
+width:100%;
+margin-top:10px;
+}
+
+.char-img{
+width:32%;
+max-width:160px;
+height:auto;
+filter:drop-shadow(0 5px 5px rgba(0,0,0,.3));
+animation:shake 2s infinite;
+}
+
+@keyframes shake{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* STAGE 4 */
+#stage4{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#fff0f3;
+color:#333;
+overflow-y:auto;
+padding:20px;
+z-index:999;
+}
+
+.letter-content{
+background:white;
+padding:25px 20px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+margin-bottom:30px;
+}
+
+.letter-content h2{font-family:'Great Vibes',cursive;font-size:2.5rem;color:#ff006e;margin:0 0 20px}
+
+.letter-text{font-size:.95rem;line-height:1.6;color:#444;text-align:left}
+
+#stage4 img{width:100%;max-width:300px;border-radius:10px;margin-top:20px}
+
+@keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+
+.confetti{position:fixed;width:10px;height:10px;z-index:100;animation:fall linear forwards;top:-10px}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+</style>
 </head>
+
 <body>
 
-    <div id="stage1">
-        <h1>Hii Shrutiiiiiii!! <br>Happppyyy Birthdayyyyyy!!!!</h1>
-        <p style="font-size: 1rem; color: #333; margin-bottom: 25px;">I have a surprise for you...</p>
-        <button class="btn" onclick="goToStage2()">Tap to Open 🎁</button>
-    </div>
+<div id="stage1">
+<h1>Hii Shrutiiiiiii!! <br>Happppyyy Birthdayyyyyy!!!!</h1>
+<p style="font-size:1rem;color:#333;margin-bottom:25px">I have a surprise for you...</p>
+<button class="btn" onclick="goToStage2()">Tap to Open 🎁</button>
+</div>
 
-    <div id="stage2">
-        <h2>Make a Wish! ✨</h2>
-        <div class="cake-wrapper">
-            <div class="cake">
-                <div class="layer layer-bottom"></div>
-                <div class="layer layer-middle"></div>
-                <div class="layer layer-top"></div>
-                <div class="icing"></div>
-                <div class="candle">
-                    <div class="flame" id="flame" onclick="blowCandle()"></div>
-                </div>
-            </div>
-        </div>
-        <p style="color: white; font-weight: 600; margin-top: 40px;">Tap the flame to blow!</p>
-    </div>
+<div id="stage2">
+<h2>Make a Wish! ✨</h2>
+<div class="cake-wrapper">
+<div class="cake">
+<div class="layer layer-bottom"></div>
+<div class="layer layer-middle"></div>
+<div class="layer layer-top"></div>
+<div class="icing"></div>
+<div class="candle"><div class="flame" id="flame" onclick="blowCandle()"></div></div>
+</div>
+</div>
+<p style="color:white;font-weight:600;margin-top:40px">Tap the flame to blow!</p>
+</div>
 
-    <div id="stage3">
-        <h2>Welcome Aboard! ✈️</h2>
-        
-        <div class="images-row">
-            <img src="shin.jpg" class="char-img shake" alt="Shin">
-            <img src="crew.png" id="crew-img" alt="Crew">
-            <img src="bob.webp" class="char-img shake" alt="Bob">
-        </div>
+<div id="stage3">
+<h2>Welcome Aboard! ✈️</h2>
 
-        <div class="caption">
-            "Ladies and Gentlemen, this is your Captain speaking...<br>
-            <strong>Shruti is going to fly high this year!</strong>"
-        </div>
+<div class="crew-container">
+<img src="crew.png" id="crew-img">
 
-        <button class="btn" onclick="openSpecial()" style="font-size: 1rem; padding: 10px 20px;">
-            Read Special Message 💌
-        </button>
-    </div>
+<div class="caption">
+"Ladies and Gentlemen, this is your Captain speaking...<br>
+<strong>Shruti is going to fly high this year!</strong>"
+</div>
 
-    <div id="stage4">
-        <div class="letter-content">
-            <h2>Special Message 💖</h2>
-            <div class="letter-text">
-                <p><strong>Hii Vent Fairy!</strong> <br>Once again, wishing you a very happy birthday!!!</p>
-                <p>Thank you for being such a wonderful and lovely friend since UKG till now. Honestly, that’s something we should flex about. Even though we don’t have pictures together, I have countless, legendary memories with you 😅😅, and I truly cherish all those amazing school days, especially when we used to sit together on the same bench.</p>
-                <p>And honestly, thank you for being there for me when I was going through a lot. That really means more than I can explain. You really are a good philosopher, lowkey philosopher + therapist combo 😅🗿</p>
-                <p>I genuinely hope you stay happy always, achieve every dream you have, and become crazy successful (so I can proudly say I knew you since UKG 😌🔥🔥)</p>
-                <p>Cheers to 20!!! 😎🎉</p>
-            </div>
-            <img src="shru.png" alt="Memory">
-            <br><br>
-            <button class="btn" onclick="location.reload()" style="background:#333; font-size: 0.8rem;">Replay</button>
-        </div>
-    </div>
+<button class="btn" onclick="openSpecial()">Read Special Message 💌</button>
+</div>
 
-    <script>
-        function burstConfetti() {
-            const colors = ['#ff006e', '#8338ec', '#ffbe0b', '#fb5607', '#3a86ff'];
-            for (let i = 0; i < 60; i++) {
-                const conf = document.createElement('div');
-                conf.classList.add('confetti');
-                conf.style.left = Math.random() * 100 + 'vw';
-                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                conf.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                document.body.appendChild(conf);
-                setTimeout(() => conf.remove(), 5000);
-            }
-        }
-        function goToStage2() {
-            document.getElementById('stage1').style.display = 'none';
-            document.getElementById('stage2').style.display = 'block';
-            burstConfetti();
-        }
-        function blowCandle() {
-            const flame = document.getElementById('flame');
-            flame.classList.remove('flame');
-            flame.classList.add('puff-out');
-            setTimeout(() => {
-                document.getElementById('stage2').style.display = 'none';
-                document.getElementById('stage3').style.display = 'flex';
-                burstConfetti();
-            }, 800);
-        }
-        function openSpecial() {
-            document.getElementById('stage4').style.display = 'block';
-            burstConfetti();
-        }
-        window.onload = burstConfetti;
-    </script>
+<div class="cartoon-row">
+<img src="shin.jpg" class="char-img">
+<img src="bob.webp" class="char-img">
+</div>
+
+</div>
+
+<div id="stage4">
+<div class="letter-content">
+<h2>Special Message 💖</h2>
+<div class="letter-text">
+<p><strong>Hii Vent Fairy!</strong><br>Once again, wishing you a very happy birthday!!!</p>
+<p>From UKG till now… that’s some solid long term friendship😎🔥. Even though we don’t have pictures together, I have countless, legendary memories with you 😅😅, and I truly cherish all those amazing school days, especially when we used to sit together on the same bench.</p>
+<p>And honestly, thank you for being there for me when I was going through a lot. You really are a good philosopher, lowkey philosopher + therapist combo 😅🗿</p>
+<p>I genuinely hope you stay happy always, achieve every dream you have, and become crazy successful (so I can proudly say I knew you since UKG 😌🔥🔥)</p>
+<p>Cheers to 20!!! 😎🎉</p>
+</div>
+<img src="shru.png">
+<br><br>
+<button class="btn" onclick="location.reload()" style="background:#333;font-size:.8rem">Replay</button>
+</div>
+</div>
+
+<script>
+function burstConfetti(){
+const colors=['#ff006e','#8338ec','#ffbe0b','#fb5607','#3a86ff'];
+for(let i=0;i<60;i++){
+const conf=document.createElement('div');
+conf.classList.add('confetti');
+conf.style.left=Math.random()*100+'vw';
+conf.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+conf.style.animationDuration=(Math.random()*2+3)+'s';
+document.body.appendChild(conf);
+setTimeout(()=>conf.remove(),5000);
+}
+}
+
+function goToStage2(){
+document.getElementById('stage1').style.display='none';
+document.getElementById('stage2').style.display='block';
+burstConfetti();
+}
+
+function blowCandle(){
+const flame=document.getElementById('flame');
+flame.classList.remove('flame');
+flame.classList.add('puff-out');
+setTimeout(()=>{
+document.getElementById('stage2').style.display='none';
+document.getElementById('stage3').style.display='flex';
+burstConfetti();
+},800);
+}
+
+function openSpecial(){
+document.getElementById('stage4').style.display='block';
+burstConfetti();
+}
+
+window.onload=burstConfetti;
+</script>
+
 </body>
 </html>
