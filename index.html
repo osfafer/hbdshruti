@@ -23,6 +23,16 @@ align-items:center;
 text-align:center;
 }
 
+/* GLOW FOR IMPORTANT WORDS */
+strong{
+animation:strongGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes strongGlow{
+0%{text-shadow:0 0 5px #fff,0 0 10px #ffd60a,0 0 20px #ffd60a}
+100%{text-shadow:0 0 12px #fff,0 0 25px #ffd60a,0 0 40px #ffea00}
+}
+
 /* STAGE 1 */
 #stage1{
 background:rgba(255,255,255,0.25);
